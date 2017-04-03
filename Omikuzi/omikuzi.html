@@ -59,8 +59,9 @@
 		(function() {
 			"use strict";
 			document.getElementById('button').addEventListener('click',function () {
-				document.getElementById('results').innerHTML = 'hit';
-
+				var result = Math.floor(Math.random()*(6+1))
+				// document.getElementById('results').innerHTML = 'hit';
+				document.getElementById('results').innerHTML = result;
 			});
 			document.getElementById('button').addEventListener('mousedown',function () {
 				this.className = 'pushed';
