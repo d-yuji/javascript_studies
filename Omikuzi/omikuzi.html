@@ -4,45 +4,8 @@
 	<meta charset="utf-8">
 	<title>おみくじ</title>
 	<style>
-		body{
-			background-color: #f0f0f9;
-			color: #0c0c0c;
-			text-align: center;
-			font-size: 16px;
-		}
-		#results{
-			font-size: 80px;
-			margin: 30px auto;
-			width: 200px;
-			height: 200px;
-			color: white;
-			border-radius: 50%;
-			background-color: skyblue;
-			box-shadow: 0px 2px 10px rgba(0,0,0,0.15);
-			line-height: 210px;
-			font-weight: bold;
-		}
-		#results:hover{
-			opacity: 0.8;
-		}
-		#button{
-			margin: 0px auto;
-			width: 200px;
-			padding: 5px;
-			color: #FFF;
-			background-color: orange;
-			border-radius: 5px;
-			box-shadow: 0px 5px 0px rgba(0,0,0,0.15);
-			cursor: pointer;
-		}
-		#button:hover{
-			opacity: 0.8;
-		}
-		#button.pushed{
-			margin-top: 32px;
-			box-shadow: 0px 2px 0px rgba(0,0,0,0.15);
-		}
 	</style>
+	<link rel="stylesheet" type="text/css" href="omikuzi.css">
 </head>
 <body>
 	<header>
@@ -53,25 +16,8 @@
 		<div id = "button">あなたの運勢は?</div>
 	</section>
 	<footer>
-		
+		<a href="../index.html">もどる</a>
 	</footer>
-	<script>
-		(function() {
-			"use strict";
-			document.getElementById('button').addEventListener('click',function () {
-				
-				var omikuziResults = ['大吉','中吉','末吉','小吉','凶','大凶'];
-				var result = Math.floor(Math.random()*omikuziResults.length);
-				// document.getElementById('results').innerHTML = 'hit';
-				document.getElementById('results').innerHTML = omikuziResults[result];
-			});
-			document.getElementById('button').addEventListener('mousedown',function () {
-				this.className = 'pushed';
-			});
-			document.getElementById('button').addEventListener('mouseup',function () {
-				this.className = '';
-			});
-		})();
-	</script>
+	<script src = 'omikuzi.js'></script>
 </body>
 </html>
