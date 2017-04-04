@@ -1,0 +1,7 @@
+div#window{
+	border:3px double navy;
+	width:800px;
+	height:300px;
+	font-size:18pt;
+	overflow:auto;
+}
