@@ -39,7 +39,10 @@ function typeGame(evt){
 	else{
 		kc = evt.which;
 	}
-	if(kc == kcode[rand[count]]){
+	if(kc == 13){
+		gameSet();
+	}
+	else if(kc == kcode[rand[count]]){
 		if(count == 0){
 			typeStart = new Date();
 		}
