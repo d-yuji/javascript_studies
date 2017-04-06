@@ -14,7 +14,7 @@ var typeStart,typeEnd;
 
 var audio = new Audio("keytype.wav");
 var audioClear = new Audio("se_onepoint23.mp3");
-
+var audioReset = new Audio("se_maoudamashii_system07.mp3");
 function randomization(){
 	// document.getElementById("rand").innerHTML = "debug2";
 	for( var i = 0; i< typeNum; i++){
@@ -40,6 +40,7 @@ function typeGame(evt){
 		kc = evt.which;
 	}
 	if(kc == 13){
+		audioReset.play();
 		gameSet();
 	}
 	else if(kc == kcode[rand[count]]){
