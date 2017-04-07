@@ -44,6 +44,7 @@ function typeGame(evt){
 	else{
 		kc = evt.which;
 	}
+	
 	if(kc == 13){
 		audioReset.play();
 		gameSet();
@@ -56,7 +57,7 @@ function typeGame(evt){
 		for(var i = 0; i< 10; i++){
 			if(audioKeytype[i].currentTime <= 0 || audioKeytype[i].ended){
 				audioKeytype[i].play();
-				document.getElementById("title").innerHTML = "debug" + i;
+				// document.getElementById("title").innerHTML = "debug" + i;
 				break;
 			}
 		}
