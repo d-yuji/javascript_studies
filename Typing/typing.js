@@ -12,10 +12,11 @@ var count = 0;
 var typeNum = 10;
 var typeStart,typeEnd;
 
-var audio = new Audio("keytype.wav");
-var audioKey = new Audio("keytype.wav");
+// var audio = new Audio("keytype.wav");
+var audioKeytype = new Array();
 var audioClear = new Audio("se_onepoint23.mp3");
 var audioReset = new Audio("se_maoudamashii_system07.mp3");
+
 function randomization(){
 	// document.getElementById("rand").innerHTML = "debug2";
 	for( var i = 0; i< typeNum; i++){
@@ -29,6 +30,9 @@ function gameSet(){
 	randomization();
 	for(var i = 0; i<typeNum; i++){
 		mondai = mondai + mozi[rand[i]];
+	}
+	for(var i = 0;i<10;i++){
+		audioKeytype[i] = new Audio("keytype.wav");
 	}
 	document.getElementById("window").innerHTML = mondai;
 }
@@ -49,13 +53,12 @@ function typeGame(evt){
 			typeStart = new Date();
 		}
 		count++;
-
-		if(audio.currentTime > 0 && !audio.ended){
-			audioKey.play();
-			// document.getElementById("title").innerHTML = "debug1";
-		}else{
-			audio.play();
-			// document.getElementById("title").innerHTML = "debug2";
+		for(var i = 0; i< 10; i++){
+			if(audioKeytype[i].currentTime <= 0 || audioKeytype[i].ended){
+				audioKeytype[i].play();
+				document.getElementById("title").innerHTML = "debug" + i;
+				break;
+			}
 		}
 		if(count < typeNum){
 			mondai = mondai.substring(1,mondai.Length);
