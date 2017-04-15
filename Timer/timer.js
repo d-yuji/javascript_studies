@@ -7,18 +7,27 @@
 	var stopButton = document.getElementById("stop");
 	var resetButton = document.getElementById("reset");
 	var timerText = document.getElementById("timerText");
+	function setButtonState(start,stop,reset){
+		startButton.disabled = !start;
+		stopButton.disabled = !stop;
+		resetButton.disabled = !reset;
+	}
+	setButtonState(true, false,false);
 
 	startButton.addEventListener('click', function(){
 		startTime = Date.now();
 		updateTimerText();
+		setButtonState(false,true,false);
 	});
 	stopButton.addEventListener('click', function(){
 		elapsedTime += Date.now() - startTime;
 		clearTimeout(timerId);
+		setButtonState(true,false,true);
 	});
 	resetButton.addEventListener('click', function(){
 		timerText.innerHTML = '0.00';
 		elapsedTime = 0;
+		setButtonState(true,false,false);
 	});
 
 	function updateTimerText(){
