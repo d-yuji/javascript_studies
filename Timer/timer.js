@@ -16,6 +16,11 @@
 		elapsedTime += Date.now() - startTime;
 		clearTimeout(timerId);
 	});
+	resetButton.addEventListener('click', function(){
+		timerText.innerHTML = '0.00';
+		elapsedTime = 0;
+	});
+
 	function updateTimerText(){
 		timerId = setTimeout(function(){
 			var t = Date.now() - startTime + elapsedTime;
