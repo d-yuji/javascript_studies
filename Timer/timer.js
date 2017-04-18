@@ -1,60 +1,75 @@
-var timer1; //タイマーを格納する変数（タイマーID）の宣言
+var timer1;
+var audio = new Audio("res/se_maoudamashii_chime02.mp3");
 
+var timerH,timerM,timerS;
 
-//カウントダウン関数を1000ミリ秒毎に呼び出す関数
+var timerText = document.getElementById("finish");
+var countText = document.getElementById("count");
+
 function cntStart(){
-	document.timer.elements[2].disabled = true;
+	timerText.innerHTML = 'COUNTING ...'
+	setInputState(false);
+	setButtonState(false,true,false);
 	timer1 = setInterval("countDown()",1000);
 }
 
-//タイマー停止関数
 function cntStop(){
-	document.timer.elements[2].disabled = false;
+	setInputState(true)
+	setButtonState(true,false,true);
+	timerText.innerHTML = 'STOP';
 	clearInterval(timer1);
 }
 
-//カウントダウン関数
 function countDown(){
 	var min = document.timer.elements[0].value;
 	var sec = document.timer.elements[1].value;
 	var minI,secI;
-	if( (min=="") && (sec=="") ){
-		alert("時刻を設定してください！");
+	if (min==""){
+		min = 0;
+	}
+	if (sec==""){
+		sec = 0;
+	}
+	minI = parseInt(min,10);
+	secI = parseInt(sec,10);
+
+	if(minI < 0 || minI > 59 || secI < 0 || secI >59){
+		alert("正しい値(0~59)を入れてください")
 		reSet();
 	}else{
-		if (min==""){
-			min = 0;
-		}
-		minI = parseInt(min,10);
-		
-		if (sec==""){
-			sec = 0;
-		}
-		secI = parseInt(sec,10);
-		
 		tmWrite( minI*60 + secI-1);
 	}
 }
 
-//残り時間を書き出す関数
 function tmWrite(time){
 	var int = time;
-	
 	if (int <= 0){
 		reSet();
-		alert("時間です！");
+		timerText.innerHTML = 'FINISH'
+		audio.play();
 	}else{
-		//残り分数はintを60で割って切り捨てる
+		countText.innerHTML = (Math.floor(int/60)) + ':' + (int % 60);
 		document.timer.elements[0].value = Math.floor(int/60);
-		//残り秒数はintを60で割った余り
 		document.timer.elements[1].value = int % 60;
 	}
 }
 
-//フォームを初期状態に戻す（リセット）関数
 function reSet(){
-	document.timer.elements[0].value="0";
-	document.timer.elements[1].value="0";
-	document.timer.elements[2].disabled=false;
+	document.timer.elements[0].value = "0";
+	document.timer.elements[1].value = "0";
+	countText.innerHTML = '0:00';
+	timerText.innerHTML = 'SET TIME';
+	setInputState(true);
+	setButtonState(true,false,true);
 	clearInterval(timer1);
+}
+
+function setInputState(state){
+	document.timer.elements[0].disabled = !state;
+	document.timer.elements[1].disabled = !state;
+}
+function setButtonState(start,stop,reset){
+	document.timer.elements[2].disabled = !start;
+	document.timer.elements[3].disabled = !stop;
+	document.timer.elements[4].disabled = !reset;
 }

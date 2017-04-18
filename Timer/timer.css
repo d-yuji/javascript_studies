@@ -33,4 +33,15 @@ body{
 	line-height: 1.2;
 	color: #303030;
 	background-color: #f9f9f9;
+	text-align: center;
+}
+#finish{
+	margin: 30px;
+	font-weight: bold;
+	font-size:30px;
+}
+#count{
+	color: #00aaff;
+	font-size: 128px;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
