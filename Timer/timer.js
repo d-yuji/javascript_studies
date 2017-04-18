@@ -17,26 +17,30 @@ function cntStop(){
 function countDown(){
 	var min = document.timer.elements[0].value;
 	var sec = document.timer.elements[1].value;
-	
+	var minI,secI;
 	if( (min=="") && (sec=="") ){
 		alert("時刻を設定してください！");
 		reSet();
 	}else{
-		if (min=="") min=0;
-		min=parseInt(min);
+		if (min==""){
+			min = 0;
+		}
+		minI = parseInt(min,10);
 		
-		if (sec=="") sec=0;
-		sec=parseInt(sec);
+		if (sec==""){
+			sec = 0;
+		}
+		secI = parseInt(sec,10);
 		
-		tmWrite(min*60+sec-1);
+		tmWrite( minI*60 + secI-1);
 	}
 }
 
 //残り時間を書き出す関数
-function tmWrite(int){
-	int = parseInt(int);
+function tmWrite(time){
+	var int = time;
 	
-	if (int<=0){
+	if (int <= 0){
 		reSet();
 		alert("時間です！");
 	}else{
