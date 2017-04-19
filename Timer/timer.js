@@ -1,6 +1,6 @@
 var timer1;
 var audio = new Audio("res/se_maoudamashii_chime02.mp3");
-
+var audioReset = new Audio("res/se_maoudamashii_system07.mp3");
 var timerH,timerM,timerS;
 
 var timerText = document.getElementById("finish");
@@ -46,8 +46,8 @@ function countDown(){
 	minI = parseInt(min,10);
 	secI = parseInt(sec,10);
 
-	if(minI < 0 || minI > 59 || secI < 0 || secI >59){
-		alert("正しい値(0~59)を入れてください")
+	if(minI < 0 || minI > 59 || secI < 0 || secI >59 ||Number.isNaN(minI)||Number.isNaN(secI)){
+		alert("正しい値(0~59)を半角英数字で入れてください")
 		reSet();
 	}else{
 		tmWrite( minI*60 + secI-1);
