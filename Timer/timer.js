@@ -5,6 +5,19 @@ var timerH,timerM,timerS;
 
 var timerText = document.getElementById("finish");
 var countText = document.getElementById("count");
+var audioSet = document.getElementById("audio");
+
+var audioState = true;
+
+audioSet.addEventListener('click', function(){
+	if(audioState){
+		audioState = false;
+		audioSet.innerHTML = 'OFF';
+	}else{
+		audioState = true;
+		audioSet.innerHTML = 'ON';
+	}
+});
 
 function cntStart(){
 	timerText.innerHTML = 'COUNTING ...'
@@ -46,7 +59,9 @@ function tmWrite(time){
 	if (int <= 0){
 		reSet();
 		timerText.innerHTML = 'FINISH'
-		audio.play();
+		if(audioState){
+			audio.play();
+		}
 	}else{
 		countText.innerHTML = (Math.floor(int/60)) + ':' + (int % 60);
 		document.timer.elements[0].value = Math.floor(int/60);
