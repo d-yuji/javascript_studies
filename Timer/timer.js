@@ -1,10 +1,23 @@
 var timer1;
 var audio = new Audio("res/se_maoudamashii_chime02.mp3");
-
+var audioReset = new Audio("res/se_maoudamashii_system07.mp3");
 var timerH,timerM,timerS;
 
 var timerText = document.getElementById("finish");
 var countText = document.getElementById("count");
+var audioSet = document.getElementById("audio");
+
+var audioState = true;
+
+audioSet.addEventListener('click', function(){
+	if(audioState){
+		audioState = false;
+		audioSet.innerHTML = 'OFF';
+	}else{
+		audioState = true;
+		audioSet.innerHTML = 'ON';
+	}
+});
 
 function cntStart(){
 	timerText.innerHTML = 'COUNTING ...'
@@ -33,8 +46,8 @@ function countDown(){
 	minI = parseInt(min,10);
 	secI = parseInt(sec,10);
 
-	if(minI < 0 || minI > 59 || secI < 0 || secI >59){
-		alert("正しい値(0~59)を入れてください")
+	if(minI < 0 || minI > 59 || secI < 0 || secI >59 ||Number.isNaN(minI)||Number.isNaN(secI)){
+		alert("正しい値(0~59)を半角英数字で入れてください")
 		reSet();
 	}else{
 		tmWrite( minI*60 + secI-1);
@@ -46,7 +59,9 @@ function tmWrite(time){
 	if (int <= 0){
 		reSet();
 		timerText.innerHTML = 'FINISH'
-		audio.play();
+		if(audioState){
+			audio.play();
+		}
 	}else{
 		countText.innerHTML = (Math.floor(int/60)) + ':' + (int % 60);
 		document.timer.elements[0].value = Math.floor(int/60);
