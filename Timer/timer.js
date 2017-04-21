@@ -1,8 +1,6 @@
 var timer1;
 var audio = new Audio("res/se_maoudamashii_chime02.mp3");
 var audioReset = new Audio("res/se_maoudamashii_system07.mp3");
-var timerH,timerM,timerS;
-
 var timerText = document.getElementById("finish");
 var countText = document.getElementById("count");
 var audioSet = document.getElementById("audio");
@@ -13,9 +11,11 @@ audioSet.addEventListener('click', function(){
 	if(audioState){
 		audioState = false;
 		audioSet.innerHTML = 'OFF';
+		audioSet.style.backgroundColor = 'orange';
 	}else{
 		audioState = true;
 		audioSet.innerHTML = 'ON';
+		audioSet.style.backgroundColor = 'skyblue';
 	}
 });
 
