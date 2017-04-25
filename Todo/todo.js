@@ -15,10 +15,14 @@ function loaded() {
 function saveText() {
 	// 時刻をキーにして入力されたテキストを保存する
 	var text = $("#formText");
-	var time = new Date();
-	localStorage.setItem(time, text.val());
-	// テキストボックスを空にする
-	text.val("");
+	if(text.val().length> 0){
+		var time = new Date();
+		localStorage.setItem(time, text.val());
+		// テキストボックスを空にする
+		text.val("");
+	}else{
+		alert("input todo task");
+	}
 }
 
 // ローカルストレージに保存した値を再描画する
