@@ -31,7 +31,14 @@ function showText() {
 	for(var i=0, len=localStorage.length; i<len; i++) {
 		key = localStorage.key(i);
 		value = localStorage.getItem(key);
-		html.push($("<p>").text(value));
+		html.push(
+			$("<li>").text(value)
+		);
 	}
 	list.append(html);
+}
+function deleteText(){
+	var list = $('#list');
+	localStorage.clear();
+	showText();
 }
