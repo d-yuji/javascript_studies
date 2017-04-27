@@ -1,3 +1,5 @@
+document.onkeydown = setEvent;
+
 var timer1;
 var audio = new Audio("res/se_maoudamashii_chime02.mp3");
 var audioReset = new Audio("res/se_maoudamashii_system07.mp3");
@@ -87,4 +89,16 @@ function setButtonState(start,stop,reset){
 	document.timer.elements[2].disabled = !start;
 	document.timer.elements[3].disabled = !stop;
 	document.timer.elements[4].disabled = !reset;
+}
+function setEvent(evt){
+	var kc;
+	if(document.all){
+		kc = event.keyCode;
+	}
+	else{
+		kc = evt.which;
+	}
+	if(kc == 13 && !document.timer.elements[0].disabled){
+		cntStart();
+	}
 }
