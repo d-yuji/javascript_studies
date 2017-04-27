@@ -9,12 +9,14 @@
 <body>
 	<h1>TODO</h1>
 	<div id="form">
-		<input id="formText" type="text" size="50">
-		<input id="inputButton" type="button" value="追加" >
-		<input id="deleteButton" type="button" value="全削除"onclick ="deleteText()">
+		<input id ="formText" type = "text" size="50">
+		<input id ="inputButton" type ="button" value="追加" >
+		<input id = "removeButton" type="button" value="削除" onclick="deleteText()">
+		<input id="deleteButton" type="button" value="全削除"onclick ="deleteAllText()">
 	</div>
-	<ol id="list"></ol>
-
+	<div id = "taskList">
+		<ol id="list"></ol>
+	</div>
 	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script src="todo.js"></script>
 </body>

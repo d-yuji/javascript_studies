@@ -1,3 +1,4 @@
+document.onkeydown = setEvent;
 $(loaded);
 
 function loaded() {
@@ -41,8 +42,28 @@ function showText() {
 	}
 	list.append(html);
 }
-function deleteText(){
+function deleteAllText(){
 	var list = $('#list');
 	localStorage.clear();
 	showText();
+}
+function deleteText(){
+	var key = localStorage.key(0);
+	localStorage.removeItem(key);
+	showText();
+}
+function setEvent(evt){
+	var kc;
+	if(document.all){
+		kc = event.keyCode;
+	}
+	else{
+		kc = evt.which;
+	}
+	if(kc == 13){
+		saveText();
+		showText();
+	}else if(kc == 46){
+		deleteText();
+	}
 }
