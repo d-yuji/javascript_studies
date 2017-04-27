@@ -1,3 +1,4 @@
+document.onkeydown = setEvent;
 $(loaded);
 
 function loaded() {
@@ -45,4 +46,18 @@ function deleteText(){
 	var list = $('#list');
 	localStorage.clear();
 	showText();
+}
+
+function setEvent(evt){
+	var kc;
+	if(document.all){
+		kc = event.keyCode;
+	}
+	else{
+		kc = evt.which;
+	}
+	if(kc == 13){
+		saveText();
+		showText();
+	}
 }
