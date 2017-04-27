@@ -59,5 +59,7 @@ function setEvent(evt){
 	if(kc == 13){
 		saveText();
 		showText();
+	}else if(kc == 46){
+		deleteText();
 	}
 }
