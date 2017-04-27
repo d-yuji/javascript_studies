@@ -42,12 +42,16 @@ function showText() {
 	}
 	list.append(html);
 }
-function deleteText(){
+function deleteAllText(){
 	var list = $('#list');
 	localStorage.clear();
 	showText();
 }
-
+function deleteText(){
+	var key = localStorage.key(0);
+	localStorage.removeItem(key);
+	showText();
+}
 function setEvent(evt){
 	var kc;
 	if(document.all){
