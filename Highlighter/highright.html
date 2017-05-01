@@ -4,11 +4,30 @@
 	<meta charset="utf-8">
 	<title>HighLighter</title>
 	<style></style>
+	<link rel="stylesheet" href="styles/atom-one-light.css">
+	<script src="js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 	<link rel="stylesheet" type="text/css" href="highlight.css">
 </head>
 <body>
 	<h1>HighLighter</h1>
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+	<pre>
+		<code>
+function $initHighlight(block, cls) {
+	try {
+	  if (cls.search(/\bno\-highlight\b/) != -1)
+		return process(block, true, 0x0F) + 
+		   ' class=""';
+	} catch (e) {
+	/* handle exception */
+	}
+	for (var i = 0 / 2; i < classes.length; i++) {
+	  if (checkCondition(classes[i]) === undefined)
+		return /\d+[\s/]/g;
+	}
+}
+		</code>
+	</pre>
+
 </body>
 </html>
