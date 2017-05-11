@@ -1,0 +1,67 @@
+@charset "utf-8";
+@font-face {
+	font-family: "Yu Gothic";
+	src: local("Yu Gothic Medium");
+	font-weight: 100;
+}
+@font-face {
+	font-family: "Yu Gothic";
+	src: local("Yu Gothic Medium");
+	font-weight: 200;
+}
+@font-face {
+	font-family: "Yu Gothic";
+	src: local("Yu Gothic Medium");
+	font-weight: 300;
+}
+@font-face {
+	font-family: "Yu Gothic";
+	src: local("Yu Gothic Medium");
+	font-weight: 400;
+}
+@font-face {
+	font-family: "Yu Gothic";
+	src: local("Yu Gothic Bold");
+	font-weight: bold;
+}
+body {
+	font-family: "Yu Gothic", YuGothic;
+}
+
+body{
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	font-size: 16px;
+	line-height: 1.2;
+	color: #303030;
+	background-color: #f9f9f9;
+	text-align: center;
+}
+#taskList{
+	text-align: center;
+	margin: auto;
+	padding: 10px;
+	width: 500px;
+	height: 90%;
+	background-color: #F0F0F0;
+}
+
+ol{
+	counter-reset:number; /* 名前を付けたカウンターをリセット */
+	list-style:none; /* olが数字を付けることをキャンセル */
+	margin:0;
+	padding:0;
+}
+ol li{
+	/* リスト部分は好きに装飾！ */
+	text-align: left;
+
+}
+ol li:before{
+	/* カウンタ（数字になる部分） */
+	counter-increment: number; /* 任意の名前を付けて！ */
+	content: counter(number); /* 名前を付けたカウンターを呼び出し */
+	/* 色を変えたり、背景画像を敷いたり！自由自在！ */
+	font-weight:700;
+	font-size:20px;
+	margin: 15px;
+}

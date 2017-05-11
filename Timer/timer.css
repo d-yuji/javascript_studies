@@ -1,0 +1,58 @@
+@font-face {
+	font-family: "Yu Gothic";
+	src: local("Yu Gothic Medium");
+	font-weight: 100;
+}
+@font-face {
+	font-family: "Yu Gothic";
+	src: local("Yu Gothic Medium");
+	font-weight: 200;
+}
+@font-face {
+	font-family: "Yu Gothic";
+	src: local("Yu Gothic Medium");
+	font-weight: 300;
+}
+@font-face {
+	font-family: "Yu Gothic";
+	src: local("Yu Gothic Medium");
+	font-weight: 400;
+}
+@font-face {
+	font-family: "Yu Gothic";
+	src: local("Yu Gothic Bold");
+	font-weight: bold;
+}
+body {
+	font-family: "Yu Gothic", YuGothic;
+}
+
+body{
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	font-size: 16px;
+	line-height: 1.2;
+	color: #303030;
+	background-color: #f9f9f9;
+	text-align: center;
+}
+
+#finish{
+	margin: 30px;
+	font-weight: bold;
+	font-size:30px;
+}
+#count{
+	color: #00aaff;
+	font-size: 128px;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+#audio{
+	width: 50px;
+	height: 50px;
+	border-radius:5%;
+	font-weight: bold;
+	line-height: 50px;
+	cursor: pointer;
+	text-align:center;
+	background-color: skyblue;
+}
