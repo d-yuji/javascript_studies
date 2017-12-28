@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>音階変換</title>
+</head>
+<body>
+    <h1>音階の変換ツール</h1>
+    <p>基準<br>
+        <input type="radio" name="q1" value="Italy" checked> ドレミ (イタリア表記)
+        <input type="radio" name="q1" value="English"> ABC(英語表記)
+        <input type="radio" name="q1" value="English"> イロハ(日本語表記)
+    </p>
+    <select name="Italy" id="id_It">
+        <option value="do">ド</option>
+        <option value="re">レ</option>
+        <option value="mi">ミ</option>
+        <option value="fa">ファ</option>
+        <option value="sol">ソ</option>
+        <option value="la">ラ</option>
+        <option value="Si">シ</option>
+    </select>
+    <select name="English" id="id_en">
+        <option value="do">C</option>
+        <option value="re">D</option>
+        <option value="mi">E</option>
+        <option value="fa">F</option>
+        <option value="sol">G</option>
+        <option value="la">A</option>
+        <option value="Si">B</option>
+    </select>
+    <select name="japan" id="id_ja">
+        <option value="do">ハ</option>
+        <option value="re">ニ</option>
+        <option value="mi">ホ</option>
+        <option value="fa">ヘ</option>
+        <option value="sol">ト</option>
+        <option value="la">イ</option>
+        <option value="Si">ロ</option>
+    </select>
+<p><button>変換</button></p>
+<a href="https://ja.wikipedia.org/wiki/%E9%9F%B3%E5%90%8D%E3%83%BB%E9%9A%8E%E5%90%8D%E8%A1%A8%E8%A8%98">参考</a>
+<script type="text/javascript">
+    (function() {
+        'use strict';
+    /*今日の日付データを変数todayに格納*/
+        var optionLoop, this_day, this_month, this_year, today;
+        today = new Date();
+        this_year = today.getFullYear();
+        this_month = today.getMonth() + 1;
+        this_day = today.getDate();
+
+        /*ループ処理（スタート数字、終了数字、表示id名、デフォルト数字）*/
+        optionLoop = function(start, end, id, this_day) {
+            var i, opt;
+            opt = null;
+            for (i = start; i <= end ; i++) {
+                if (i === this_day) {
+                    opt += "<option value='" + i + "' selected>" + i + "</option>";
+                } else {
+                    opt += "<option value='" + i + "'>" + i + "</option>";
+                }
+            }
+            return document.getElementById(id).innerHTML = opt;
+        };
+
+        /*関数設定（スタート数字[必須]、終了数字[必須]、表示id名[省略可能]、デフォルト数字[省略可能]）*/
+        optionLoop(1950, this_year, 'id_year', this_year);
+        optionLoop(1, 12, 'id_month', this_month);
+        optionLoop(1, 31, 'id_day', this_day);
+    })();
+</script>
+
+</script>
+</body>
+</html>
